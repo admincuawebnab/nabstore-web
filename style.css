@@ -1,0 +1,76 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
+body { background: #1e1f22; color: #e3e3e3; min-height: 100vh; }
+.man-hinh { min-height: 100vh; }
+
+#man-hinh-login { display: flex; align-items: center; justify-content: center; }
+.the-login {
+  background: #2b2d31; padding: 40px; border-radius: 12px; text-align: center;
+  width: 360px; box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.the-login h1 { margin-bottom: 8px; color: #f0b429; }
+.the-login p { color: #a0a0a0; font-size: 14px; margin-bottom: 20px; }
+.the-login input {
+  width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444;
+  background: #1e1f22; color: #fff; margin-bottom: 12px; font-size: 14px;
+}
+.the-login button { width: 100%; }
+.thong-bao-loi { color: #ff5c5c; font-size: 13px; margin-top: 10px; min-height: 16px; }
+
+.header {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 24px; background: #2b2d31; border-bottom: 1px solid #3a3b3f;
+}
+.header h1 { color: #f0b429; font-size: 20px; }
+.thong-tin-user { display: flex; align-items: center; gap: 14px; font-size: 14px; }
+.badge { background: #1e1f22; padding: 6px 12px; border-radius: 20px; color: #f0b429; font-weight: bold; }
+#nut-dang-xuat { background: transparent; border: 1px solid #555; color: #ccc; padding: 6px 12px; border-radius: 6px; cursor: pointer; }
+
+.tab-nav { display: flex; gap: 6px; padding: 16px 24px 0; flex-wrap: wrap; }
+.tab-btn {
+  background: #2b2d31; border: none; color: #ccc; padding: 10px 16px;
+  border-radius: 8px 8px 0 0; cursor: pointer; font-size: 13px;
+}
+.tab-btn.active { background: #f0b429; color: #1e1f22; font-weight: bold; }
+.tab-content { display: none; padding: 24px; }
+.tab-content.active { display: block; }
+
+.grid-shop { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.the-san-pham { background: #2b2d31; border-radius: 10px; padding: 16px; border: 1px solid #3a3b3f; }
+.the-san-pham h3 { color: #fff; margin-bottom: 8px; }
+.the-san-pham .gia { color: #f0b429; font-weight: bold; margin-bottom: 6px; }
+.the-san-pham .mo-ta { color: #a0a0a0; font-size: 13px; margin-bottom: 8px; }
+.the-san-pham .ton-kho { font-size: 12px; color: #7fd97f; margin-bottom: 10px; }
+.the-san-pham button {
+  width: 100%; padding: 8px; border: none; border-radius: 6px;
+  background: #f0b429; color: #1e1f22; font-weight: bold; cursor: pointer;
+}
+.the-san-pham input {
+  width: 100%; padding: 6px; margin-bottom: 8px; border-radius: 6px;
+  border: 1px solid #444; background: #1e1f22; color: #fff;
+}
+
+.the-form {
+  background: #2b2d31; padding: 30px; border-radius: 12px; max-width: 420px;
+}
+.the-form h2 { margin-bottom: 16px; }
+.the-form p { margin-bottom: 16px; color: #ccc; }
+.the-form input {
+  width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #444;
+  background: #1e1f22; color: #fff; margin-bottom: 12px; font-size: 14px;
+}
+.the-form button {
+  width: 100%; padding: 12px; border: none; border-radius: 8px;
+  background: #f0b429; color: #1e1f22; font-weight: bold; cursor: pointer; font-size: 14px;
+}
+.the-form button:hover { background: #d99e1f; }
+
+.thong-bao { margin-top: 14px; font-size: 14px; min-height: 18px; }
+
+.grid-list { display: flex; flex-direction: column; gap: 10px; max-width: 600px; }
+.dong-list {
+  background: #2b2d31; padding: 14px 18px; border-radius: 8px;
+  border: 1px solid #3a3b3f; display: flex; justify-content: space-between; align-items: center;
+}
+.dong-list .trai { font-size: 14px; }
+.dong-list .phai { font-weight: bold; color: #f0b429; }
+.dong-list .hang { color: #f0b429; font-weight: bold; margin-right: 10px; }
