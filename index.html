@@ -11,82 +11,108 @@
   <!-- MÀN HÌNH ĐĂNG NHẬP -->
   <div id="man-hinh-login" class="man-hinh">
     <div class="the-login">
-      <h1>🏪 Nab Store</h1>
+      <h1>NAB STORE</h1>
       <p>Đăng nhập bằng token từ lệnh <code>/tokennab</code> trên Discord</p>
       <input id="input-token" type="text" placeholder="Nhập token của bạn..." />
-      <button id="nut-dang-nhap">Đăng Nhập</button>
+      <button id="nut-dang-nhap">ĐĂNG NHẬP</button>
       <p id="loi-login" class="thong-bao-loi"></p>
     </div>
   </div>
 
-  <!-- MÀN HÌNH CHÍNH -->
-  <div id="man-hinh-chinh" class="man-hinh" style="display:none;">
-    <header class="header">
-      <h1>🏪 Nab Store</h1>
-      <div class="thong-tin-user">
-        <span id="ten-user"></span>
-        <span class="badge">💰 <span id="so-xu">0</span> Bxu</span>
-        <button id="nut-dang-xuat">Đăng xuất</button>
+  <!-- MÀN HÌNH CHÍNH: SIDEBAR + NỘI DUNG -->
+  <div id="man-hinh-chinh" class="app-layout" style="display:none;">
+
+    <!-- SIDEBAR TRÁI -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">NAB STORE</div>
+
+      <div class="sidebar-user">
+        <div class="avatar">👤</div>
+        <div>
+          <div id="ten-user" class="sidebar-username">—</div>
+          <div class="sidebar-role">MEMBER</div>
+        </div>
       </div>
-    </header>
 
-    <nav class="tab-nav">
-      <button class="tab-btn active" data-tab="shop">🛒 Cửa Hàng</button>
-      <button class="tab-btn" data-tab="dnhn">📅 Điểm Danh</button>
-      <button class="tab-btn" data-tab="lsmua">📜 Lịch Sử</button>
-      <button class="tab-btn" data-tab="chuyenbxu">🔄 Chuyển Bxu</button>
-      <button class="tab-btn" data-tab="nhapcode">🎟️ Nhập Code</button>
-      <button class="tab-btn" data-tab="bxh">🏆 BXH</button>
-    </nav>
+      <nav class="sidebar-nav">
+        <div class="sidebar-nhom">CHÍNH</div>
+        <button class="tab-btn active" data-tab="shop">🛒 Cửa Hàng</button>
+        <button class="tab-btn" data-tab="dnhn">📅 Điểm Danh</button>
+        <button class="tab-btn" data-tab="lsmua">📜 Lịch Sử</button>
+        <button class="tab-btn" data-tab="chuyenbxu">🔄 Chuyển Bxu</button>
+        <button class="tab-btn" data-tab="nhapcode">🎟️ Nhập Code</button>
+        <button class="tab-btn" data-tab="bxh">🏆 BXH</button>
+      </nav>
 
-    <!-- TAB CỬA HÀNG -->
-    <section id="tab-shop" class="tab-content active">
-      <div id="danh-sach-shop" class="grid-shop"></div>
-    </section>
+      <button id="nut-dang-xuat" class="sidebar-logout">⎋ Đăng xuất</button>
+    </aside>
 
-    <!-- TAB ĐIỂM DANH -->
-    <section id="tab-dnhn" class="tab-content">
-      <div class="the-form">
-        <h2>📅 Điểm Danh Hằng Ngày</h2>
-        <p>Streak hiện tại: <b id="streak-hien-tai">0</b> ngày 🔥</p>
-        <button id="nut-diem-danh">Điểm Danh Ngay</button>
-        <p id="ket-qua-dnhn" class="thong-bao"></p>
-      </div>
-    </section>
+    <!-- NỘI DUNG BÊN PHẢI -->
+    <div class="main-area">
+      <header class="topbar">
+        <div class="badge-xu">💰 <span id="so-xu">0</span> Bxu</div>
+        <div class="badge-streak">🔥 <span id="streak-hien-tai">0</span> ngày streak</div>
+      </header>
 
-    <!-- TAB LỊCH SỬ MUA -->
-    <section id="tab-lsmua" class="tab-content">
-      <div id="danh-sach-lsmua" class="grid-list"></div>
-    </section>
+      <main class="content">
+        <!-- TAB CỬA HÀNG -->
+        <section id="tab-shop" class="tab-content active">
+          <div id="danh-sach-shop" class="grid-shop"></div>
+        </section>
 
-    <!-- TAB CHUYỂN BXU -->
-    <section id="tab-chuyenbxu" class="tab-content">
-      <div class="the-form">
-        <h2>🔄 Chuyển Bxu Cho Người Khác</h2>
-        <input id="input-nguoinhan-id" type="text" placeholder="Discord ID người nhận" />
-        <input id="input-soluong-chuyen" type="number" placeholder="Số Bxu muốn chuyển" min="1" />
-        <button id="nut-chuyen-bxu">Chuyển Ngay</button>
-        <p id="ket-qua-chuyenbxu" class="thong-bao"></p>
-      </div>
-    </section>
+        <!-- TAB ĐIỂM DANH -->
+        <section id="tab-dnhn" class="tab-content">
+          <div class="the-form">
+            <h2>ĐIỂM DANH HẰNG NGÀY</h2>
+            <p>Streak hiện tại: <b id="streak-hien-tai-form">0</b> ngày</p>
+            <button id="nut-diem-danh">ĐIỂM DANH NGAY</button>
+            <p id="ket-qua-dnhn" class="thong-bao"></p>
+          </div>
+        </section>
 
-    <!-- TAB NHẬP CODE -->
-    <section id="tab-nhapcode" class="tab-content">
-      <div class="the-form">
-        <h2>🎟️ Nhập Mã Code</h2>
-        <input id="input-ma-code" type="text" placeholder="Nhập mã code..." />
-        <button id="nut-nhap-code">Nhập Mã</button>
-        <p id="ket-qua-nhapcode" class="thong-bao"></p>
-      </div>
-    </section>
+        <!-- TAB LỊCH SỬ MUA -->
+        <section id="tab-lsmua" class="tab-content">
+          <div id="danh-sach-lsmua" class="grid-list"></div>
+        </section>
 
-    <!-- TAB BXH -->
-    <section id="tab-bxh" class="tab-content">
-      <div id="danh-sach-bxh" class="grid-list"></div>
-    </section>
+        <!-- TAB CHUYỂN BXU -->
+        <section id="tab-chuyenbxu" class="tab-content">
+          <div class="the-form">
+            <h2>CHUYỂN BXU CHO NGƯỜI KHÁC</h2>
+            <input id="input-nguoinhan-id" type="text" placeholder="Discord ID người nhận" />
+            <input id="input-soluong-chuyen" type="number" placeholder="Số Bxu muốn chuyển" min="1" />
+            <button id="nut-chuyen-bxu">CHUYỂN NGAY</button>
+            <p id="ket-qua-chuyenbxu" class="thong-bao"></p>
+          </div>
+        </section>
+
+        <!-- TAB NHẬP CODE -->
+        <section id="tab-nhapcode" class="tab-content">
+          <div class="the-form">
+            <h2>NHẬP MÃ CODE</h2>
+            <input id="input-ma-code" type="text" placeholder="Nhập mã code..." />
+            <button id="nut-nhap-code">NHẬP MÃ</button>
+            <p id="ket-qua-nhapcode" class="thong-bao"></p>
+          </div>
+        </section>
+
+        <!-- TAB BXH -->
+        <section id="tab-bxh" class="tab-content">
+          <div id="danh-sach-bxh" class="grid-list"></div>
+        </section>
+      </main>
+    </div>
   </div>
 
   <script src="script_part1.js"></script>
   <script src="script_part2.js"></script>
+  <script>
+    // Đồng bộ số streak giữa badge trên topbar và trong tab điểm danh
+    const _streakObserver = new MutationObserver(() => {
+      document.getElementById("streak-hien-tai-form").textContent =
+        document.getElementById("streak-hien-tai").textContent;
+    });
+    _streakObserver.observe(document.getElementById("streak-hien-tai"), { childList: true });
+  </script>
 </body>
 </html>
