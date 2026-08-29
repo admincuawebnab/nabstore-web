@@ -20,139 +20,162 @@
     </div>
   </div>
 
-  <!-- MÀN HÌNH CHÍNH: SIDEBAR + NỘI DUNG -->
+  <!-- MÀN HÌNH CHÍNH -->
   <div id="man-hinh-chinh" class="app-layout" style="display:none;">
 
-    <!-- NÚT HAMBURGER (chỉ hiện trên mobile) -->
-    <button id="nut-hamburger" class="nut-hamburger" aria-label="Menu">
-      <span></span><span></span><span></span>
-    </button>
-    <div id="lop-phu-mobile" class="lop-phu-mobile"></div>
+    <!-- MENU NGANG TRÊN ĐẦU -->
+    <header class="topnav">
+      <div class="topnav-brand">🏪 NAB STORE</div>
 
-    <!-- SIDEBAR TRÁI -->
-    <aside id="sidebar" class="sidebar">
-      <div class="sidebar-logo">🏪 NAB STORE</div>
+      <button id="nut-hamburger" class="nut-hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
 
-      <div class="sidebar-user">
-        <div class="avatar" id="avatar-chu-cai">?</div>
-        <div class="sidebar-user-info">
-          <div id="ten-user" class="sidebar-username">—</div>
-          <div class="sidebar-role">MEMBER</div>
-        </div>
-      </div>
-
-      <nav class="sidebar-nav">
-        <div class="sidebar-nhom">MENU</div>
-        <button class="tab-btn active" data-tab="shop"><span class="tab-icon">🛒</span>Cửa Hàng</button>
-        <button class="tab-btn" data-tab="dnhn"><span class="tab-icon">📅</span>Điểm Danh</button>
-        <button class="tab-btn" data-tab="lsmua"><span class="tab-icon">📜</span>Lịch Sử</button>
-        <button class="tab-btn" data-tab="chuyenbxu"><span class="tab-icon">🔄</span>Chuyển Bxu</button>
-        <button class="tab-btn" data-tab="nhapcode"><span class="tab-icon">🎟️</span>Nhập Code</button>
-        <button class="tab-btn" data-tab="bxh"><span class="tab-icon">🏆</span>BXH</button>
+      <nav id="topnav-menu" class="topnav-menu">
+        <button class="tab-btn active" data-tab="shop">🛒 Cửa Hàng</button>
+        <button class="tab-btn" data-tab="dnhn">📅 Điểm Danh</button>
+        <button class="tab-btn" data-tab="lsmua">📜 Lịch Sử</button>
+        <button class="tab-btn" data-tab="chuyenbxu">🔄 Chuyển Bxu</button>
+        <button class="tab-btn" data-tab="nhapcode">🎟️ Nhập Code</button>
+        <button class="tab-btn" data-tab="napthe">💳 Nạp Thẻ</button>
+        <button class="tab-btn" data-tab="napbank">🏦 Nạp Bank</button>
+        <button class="tab-btn" data-tab="ttcn">🪪 Cá Nhân</button>
+        <button class="tab-btn" data-tab="bxh">🏆 BXH</button>
+        <a href="https://discord.gg/3efHDNyEr" target="_blank" class="topnav-discord">💬 Liên Hệ Discord</a>
       </nav>
 
-      <button id="nut-dang-xuat" class="sidebar-logout"><span class="tab-icon">⎋</span>Đăng xuất</button>
-    </aside>
+      <div class="topnav-user">
+        <div class="badge-xu">💰 <span id="so-xu">0</span></div>
+        <div class="badge-streak">🔥 <span id="streak-hien-tai">0</span></div>
+        <div class="avatar" id="avatar-chu-cai">?</div>
+        <span id="ten-user" class="topnav-username">—</span>
+        <button id="nut-dang-xuat" class="topnav-logout">⎋</button>
+      </div>
+    </header>
 
-    <!-- NỘI DUNG BÊN PHẢI -->
-    <div class="main-area">
-      <header class="topbar">
-        <span class="topbar-mobile-spacer"></span>
-        <div class="badge-xu">💰 <span id="so-xu">0</span> Bxu</div>
-        <div class="badge-streak">🔥 <span id="streak-hien-tai">0</span> ngày streak</div>
-      </header>
+    <main class="content">
+      <!-- TAB CỬA HÀNG -->
+      <section id="tab-shop" class="tab-content active">
+        <h2 class="section-title">Cửa Hàng</h2>
+        <div id="danh-sach-shop" class="grid-shop"></div>
+      </section>
 
-      <main class="content">
-        <!-- TAB CỬA HÀNG -->
-        <section id="tab-shop" class="tab-content active">
-          <h2 class="section-title">Cửa Hàng</h2>
-          <div id="danh-sach-shop" class="grid-shop"></div>
-        </section>
+      <!-- TAB ĐIỂM DANH -->
+      <section id="tab-dnhn" class="tab-content">
+        <h2 class="section-title">Điểm Danh</h2>
+        <div class="the-form the-form-center">
+          <div class="dnhn-icon">📅</div>
+          <h3>Điểm Danh Hằng Ngày</h3>
+          <p>Streak hiện tại: <b id="streak-hien-tai-form">0</b> ngày 🔥</p>
+          <button id="nut-diem-danh">ĐIỂM DANH NGAY</button>
+          <p id="ket-qua-dnhn" class="thong-bao"></p>
+        </div>
+      </section>
 
-        <!-- TAB ĐIỂM DANH -->
-        <section id="tab-dnhn" class="tab-content">
-          <h2 class="section-title">Điểm Danh</h2>
-          <div class="the-form the-form-center">
-            <div class="dnhn-icon">📅</div>
-            <h3>Điểm Danh Hằng Ngày</h3>
-            <p>Streak hiện tại: <b id="streak-hien-tai-form">0</b> ngày 🔥</p>
-            <button id="nut-diem-danh">ĐIỂM DANH NGAY</button>
-            <p id="ket-qua-dnhn" class="thong-bao"></p>
-          </div>
-        </section>
+      <!-- TAB LỊCH SỬ MUA -->
+      <section id="tab-lsmua" class="tab-content">
+        <h2 class="section-title">Lịch Sử Mua Hàng</h2>
+        <div id="danh-sach-lsmua" class="grid-list"></div>
+      </section>
 
-        <!-- TAB LỊCH SỬ MUA -->
-        <section id="tab-lsmua" class="tab-content">
-          <h2 class="section-title">Lịch Sử Mua Hàng</h2>
-          <div id="danh-sach-lsmua" class="grid-list"></div>
-        </section>
+      <!-- TAB CHUYỂN BXU -->
+      <section id="tab-chuyenbxu" class="tab-content">
+        <h2 class="section-title">Chuyển Bxu</h2>
+        <div class="the-form">
+          <input id="input-nguoinhan-id" type="text" placeholder="Discord ID người nhận" />
+          <input id="input-soluong-chuyen" type="number" placeholder="Số Bxu muốn chuyển" min="1" />
+          <button id="nut-chuyen-bxu">CHUYỂN NGAY</button>
+          <p id="ket-qua-chuyenbxu" class="thong-bao"></p>
+        </div>
+      </section>
 
-        <!-- TAB CHUYỂN BXU -->
-        <section id="tab-chuyenbxu" class="tab-content">
-          <h2 class="section-title">Chuyển Bxu</h2>
-          <div class="the-form">
-            <input id="input-nguoinhan-id" type="text" placeholder="Discord ID người nhận" />
-            <input id="input-soluong-chuyen" type="number" placeholder="Số Bxu muốn chuyển" min="1" />
-            <button id="nut-chuyen-bxu">CHUYỂN NGAY</button>
-            <p id="ket-qua-chuyenbxu" class="thong-bao"></p>
-          </div>
-        </section>
+      <!-- TAB NHẬP CODE -->
+      <section id="tab-nhapcode" class="tab-content">
+        <h2 class="section-title">Nhập Mã Code</h2>
+        <div class="the-form">
+          <input id="input-ma-code" type="text" placeholder="Nhập mã code..." />
+          <button id="nut-nhap-code">NHẬP MÃ</button>
+          <p id="ket-qua-nhapcode" class="thong-bao"></p>
+        </div>
+      </section>
 
-        <!-- TAB NHẬP CODE -->
-        <section id="tab-nhapcode" class="tab-content">
-          <h2 class="section-title">Nhập Mã Code</h2>
-          <div class="the-form">
-            <input id="input-ma-code" type="text" placeholder="Nhập mã code..." />
-            <button id="nut-nhap-code">NHẬP MÃ</button>
-            <p id="ket-qua-nhapcode" class="thong-bao"></p>
-          </div>
-        </section>
+      <!-- TAB NẠP THẺ -->
+      <section id="tab-napthe" class="tab-content">
+        <h2 class="section-title">Nạp Thẻ Cào</h2>
+        <div class="the-form">
+          <select id="select-loai-the">
+            <option value="VIETTEL">VIETTEL</option>
+            <option value="MOBIFONE">MOBIFONE</option>
+            <option value="ZING">ZING</option>
+            <option value="GARENA">GARENA</option>
+          </select>
+          <select id="select-menh-gia">
+            <option value="10000">10,000đ</option>
+            <option value="20000">20,000đ</option>
+            <option value="50000">50,000đ</option>
+            <option value="100000">100,000đ</option>
+          </select>
+          <input id="input-ma-the" type="text" placeholder="Mã thẻ" />
+          <input id="input-so-seri" type="text" placeholder="Số seri" />
+          <button id="nut-nap-the">GỬI YÊU CẦU</button>
+          <p id="ket-qua-napthe" class="thong-bao"></p>
+        </div>
+      </section>
 
-        <!-- TAB BXH -->
-        <section id="tab-bxh" class="tab-content">
-          <h2 class="section-title">Bảng Xếp Hạng</h2>
-          <div id="danh-sach-bxh" class="grid-list"></div>
-        </section>
-      </main>
-    </div>
+      <!-- TAB NẠP BANK -->
+      <section id="tab-napbank" class="tab-content">
+        <h2 class="section-title">Nạp Qua Ngân Hàng</h2>
+        <div class="the-form">
+          <input id="input-so-tien-bank" type="number" placeholder="Số tiền muốn nạp (VNĐ)" min="1" />
+          <input id="input-ghichu-bank" type="text" placeholder="Ghi chú (không bắt buộc)" />
+          <button id="nut-nap-bank">GỬI YÊU CẦU</button>
+          <p id="ket-qua-napbank" class="thong-bao"></p>
+        </div>
+      </section>
+
+      <!-- TAB THÔNG TIN CÁ NHÂN -->
+      <section id="tab-ttcn" class="tab-content">
+        <h2 class="section-title">Thông Tin Cá Nhân</h2>
+        <div id="danh-sach-ttcn" class="grid-list"></div>
+      </section>
+
+      <!-- TAB BXH -->
+      <section id="tab-bxh" class="tab-content">
+        <h2 class="section-title">Bảng Xếp Hạng</h2>
+        <div id="danh-sach-bxh" class="grid-list"></div>
+      </section>
+    </main>
   </div>
 
   <script src="script_part1.js"></script>
   <script src="script_part2.js"></script>
+  <script src="script_part3.js"></script>
   <script>
-    // Đồng bộ số streak giữa badge trên topbar và trong tab điểm danh
     const _streakObserver = new MutationObserver(() => {
       document.getElementById("streak-hien-tai-form").textContent =
-        document.getElementById("streak-hien-tai").textContent;
+        document.getElementById("streak-hien-tai") ? document.getElementById("streak-hien-tai").textContent : "0";
     });
-    _streakObserver.observe(document.getElementById("streak-hien-tai"), { childList: true });
+    if (document.getElementById("streak-hien-tai")) {
+      _streakObserver.observe(document.getElementById("streak-hien-tai"), { childList: true });
+    }
 
-    // Lấy chữ cái đầu tên user hiện lên avatar
     const _userObserver = new MutationObserver(() => {
       const ten = document.getElementById("ten-user").textContent.trim();
       document.getElementById("avatar-chu-cai").textContent = ten ? ten[0].toUpperCase() : "?";
     });
     _userObserver.observe(document.getElementById("ten-user"), { childList: true });
 
-    // Hamburger menu cho mobile: bật/tắt sidebar
     const nutHamburger = document.getElementById("nut-hamburger");
-    const sidebar = document.getElementById("sidebar");
-    const lopPhu = document.getElementById("lop-phu-mobile");
-
-    function dongSidebarMobile() {
-      sidebar.classList.remove("mo");
-      lopPhu.classList.remove("hien");
-    }
+    const topnavMenu = document.getElementById("topnav-menu");
 
     nutHamburger.addEventListener("click", () => {
-      sidebar.classList.toggle("mo");
-      lopPhu.classList.toggle("hien");
+      topnavMenu.classList.toggle("mo");
     });
-    lopPhu.addEventListener("click", dongSidebarMobile);
 
-    // Đóng sidebar mobile mỗi khi chọn tab
     document.querySelectorAll(".tab-btn").forEach((btn) => {
-      btn.addEventListener("click", dongSidebarMobile);
+      btn.addEventListener("click", () => {
+        topnavMenu.classList.remove("mo");
+      });
     });
   </script>
 </body>
