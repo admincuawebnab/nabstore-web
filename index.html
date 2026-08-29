@@ -11,6 +11,7 @@
   <!-- MÀN HÌNH ĐĂNG NHẬP -->
   <div id="man-hinh-login" class="man-hinh">
     <div class="the-login">
+      <div class="login-logo">🏪</div>
       <h1>NAB STORE</h1>
       <p>Đăng nhập bằng token từ lệnh <code>/tokennab</code> trên Discord</p>
       <input id="input-token" type="text" placeholder="Nhập token của bạn..." />
@@ -22,34 +23,41 @@
   <!-- MÀN HÌNH CHÍNH: SIDEBAR + NỘI DUNG -->
   <div id="man-hinh-chinh" class="app-layout" style="display:none;">
 
+    <!-- NÚT HAMBURGER (chỉ hiện trên mobile) -->
+    <button id="nut-hamburger" class="nut-hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div id="lop-phu-mobile" class="lop-phu-mobile"></div>
+
     <!-- SIDEBAR TRÁI -->
-    <aside class="sidebar">
-      <div class="sidebar-logo">NAB STORE</div>
+    <aside id="sidebar" class="sidebar">
+      <div class="sidebar-logo">🏪 NAB STORE</div>
 
       <div class="sidebar-user">
-        <div class="avatar">👤</div>
-        <div>
+        <div class="avatar" id="avatar-chu-cai">?</div>
+        <div class="sidebar-user-info">
           <div id="ten-user" class="sidebar-username">—</div>
           <div class="sidebar-role">MEMBER</div>
         </div>
       </div>
 
       <nav class="sidebar-nav">
-        <div class="sidebar-nhom">CHÍNH</div>
-        <button class="tab-btn active" data-tab="shop">🛒 Cửa Hàng</button>
-        <button class="tab-btn" data-tab="dnhn">📅 Điểm Danh</button>
-        <button class="tab-btn" data-tab="lsmua">📜 Lịch Sử</button>
-        <button class="tab-btn" data-tab="chuyenbxu">🔄 Chuyển Bxu</button>
-        <button class="tab-btn" data-tab="nhapcode">🎟️ Nhập Code</button>
-        <button class="tab-btn" data-tab="bxh">🏆 BXH</button>
+        <div class="sidebar-nhom">MENU</div>
+        <button class="tab-btn active" data-tab="shop"><span class="tab-icon">🛒</span>Cửa Hàng</button>
+        <button class="tab-btn" data-tab="dnhn"><span class="tab-icon">📅</span>Điểm Danh</button>
+        <button class="tab-btn" data-tab="lsmua"><span class="tab-icon">📜</span>Lịch Sử</button>
+        <button class="tab-btn" data-tab="chuyenbxu"><span class="tab-icon">🔄</span>Chuyển Bxu</button>
+        <button class="tab-btn" data-tab="nhapcode"><span class="tab-icon">🎟️</span>Nhập Code</button>
+        <button class="tab-btn" data-tab="bxh"><span class="tab-icon">🏆</span>BXH</button>
       </nav>
 
-      <button id="nut-dang-xuat" class="sidebar-logout">⎋ Đăng xuất</button>
+      <button id="nut-dang-xuat" class="sidebar-logout"><span class="tab-icon">⎋</span>Đăng xuất</button>
     </aside>
 
     <!-- NỘI DUNG BÊN PHẢI -->
     <div class="main-area">
       <header class="topbar">
+        <span class="topbar-mobile-spacer"></span>
         <div class="badge-xu">💰 <span id="so-xu">0</span> Bxu</div>
         <div class="badge-streak">🔥 <span id="streak-hien-tai">0</span> ngày streak</div>
       </header>
@@ -57,14 +65,17 @@
       <main class="content">
         <!-- TAB CỬA HÀNG -->
         <section id="tab-shop" class="tab-content active">
+          <h2 class="section-title">Cửa Hàng</h2>
           <div id="danh-sach-shop" class="grid-shop"></div>
         </section>
 
         <!-- TAB ĐIỂM DANH -->
         <section id="tab-dnhn" class="tab-content">
-          <div class="the-form">
-            <h2>ĐIỂM DANH HẰNG NGÀY</h2>
-            <p>Streak hiện tại: <b id="streak-hien-tai-form">0</b> ngày</p>
+          <h2 class="section-title">Điểm Danh</h2>
+          <div class="the-form the-form-center">
+            <div class="dnhn-icon">📅</div>
+            <h3>Điểm Danh Hằng Ngày</h3>
+            <p>Streak hiện tại: <b id="streak-hien-tai-form">0</b> ngày 🔥</p>
             <button id="nut-diem-danh">ĐIỂM DANH NGAY</button>
             <p id="ket-qua-dnhn" class="thong-bao"></p>
           </div>
@@ -72,13 +83,14 @@
 
         <!-- TAB LỊCH SỬ MUA -->
         <section id="tab-lsmua" class="tab-content">
+          <h2 class="section-title">Lịch Sử Mua Hàng</h2>
           <div id="danh-sach-lsmua" class="grid-list"></div>
         </section>
 
         <!-- TAB CHUYỂN BXU -->
         <section id="tab-chuyenbxu" class="tab-content">
+          <h2 class="section-title">Chuyển Bxu</h2>
           <div class="the-form">
-            <h2>CHUYỂN BXU CHO NGƯỜI KHÁC</h2>
             <input id="input-nguoinhan-id" type="text" placeholder="Discord ID người nhận" />
             <input id="input-soluong-chuyen" type="number" placeholder="Số Bxu muốn chuyển" min="1" />
             <button id="nut-chuyen-bxu">CHUYỂN NGAY</button>
@@ -88,8 +100,8 @@
 
         <!-- TAB NHẬP CODE -->
         <section id="tab-nhapcode" class="tab-content">
+          <h2 class="section-title">Nhập Mã Code</h2>
           <div class="the-form">
-            <h2>NHẬP MÃ CODE</h2>
             <input id="input-ma-code" type="text" placeholder="Nhập mã code..." />
             <button id="nut-nhap-code">NHẬP MÃ</button>
             <p id="ket-qua-nhapcode" class="thong-bao"></p>
@@ -98,6 +110,7 @@
 
         <!-- TAB BXH -->
         <section id="tab-bxh" class="tab-content">
+          <h2 class="section-title">Bảng Xếp Hạng</h2>
           <div id="danh-sach-bxh" class="grid-list"></div>
         </section>
       </main>
@@ -113,6 +126,34 @@
         document.getElementById("streak-hien-tai").textContent;
     });
     _streakObserver.observe(document.getElementById("streak-hien-tai"), { childList: true });
+
+    // Lấy chữ cái đầu tên user hiện lên avatar
+    const _userObserver = new MutationObserver(() => {
+      const ten = document.getElementById("ten-user").textContent.trim();
+      document.getElementById("avatar-chu-cai").textContent = ten ? ten[0].toUpperCase() : "?";
+    });
+    _userObserver.observe(document.getElementById("ten-user"), { childList: true });
+
+    // Hamburger menu cho mobile: bật/tắt sidebar
+    const nutHamburger = document.getElementById("nut-hamburger");
+    const sidebar = document.getElementById("sidebar");
+    const lopPhu = document.getElementById("lop-phu-mobile");
+
+    function dongSidebarMobile() {
+      sidebar.classList.remove("mo");
+      lopPhu.classList.remove("hien");
+    }
+
+    nutHamburger.addEventListener("click", () => {
+      sidebar.classList.toggle("mo");
+      lopPhu.classList.toggle("hien");
+    });
+    lopPhu.addEventListener("click", dongSidebarMobile);
+
+    // Đóng sidebar mobile mỗi khi chọn tab
+    document.querySelectorAll(".tab-btn").forEach((btn) => {
+      btn.addEventListener("click", dongSidebarMobile);
+    });
   </script>
 </body>
 </html>
