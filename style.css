@@ -1,3 +1,4 @@
+```css
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; }
 body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidden; }
 
@@ -165,3 +166,32 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
   .the-form { max-width: 100%; }
   .topnav-username { max-width: 60px; }
 }
+
+/* ---- Nút lấy TokenNAB ---- */
+.nut-chua-co-token {
+  display: block;
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px 14px;
+  border: 1px solid #2a3a4a;
+  border-radius: 8px;
+  background: #151b22;
+  color: #8fc5ff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  transition: all 0.15s;
+}
+
+.nut-chua-co-token:hover {
+  background: #1c2936;
+  border-color: #4b79a5;
+  color: #a8d0ff;
+  transform: translateY(-1px);
+}
+
+.nut-chua-co-token:active {
+  transform: translateY(0) scale(0.98);
+}
+```
