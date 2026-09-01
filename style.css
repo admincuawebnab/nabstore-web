@@ -32,78 +32,57 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
 .thong-bao-loi { color: #ff6b6b; font-size: 13px; margin-top: 12px; min-height: 16px; }
 
 /* ---- Layout chính ---- */
-.app-layout { display: flex; min-height: 100vh; animation: fadeIn 0.4s ease-out; position: relative; }
+.app-layout { min-height: 100vh; animation: fadeIn 0.4s ease-out; }
 
-.sidebar {
-  width: 230px; background: #111111; border-right: 1px solid #262626;
-  display: flex; flex-direction: column; padding: 18px 0; flex-shrink: 0;
-  height: 100vh; position: sticky; top: 0;
+/* ---- Menu ngang trên đầu ---- */
+.topnav {
+  display: flex; align-items: center; gap: 16px; padding: 12px 20px;
+  background: #111111; border-bottom: 1px solid #262626;
+  position: sticky; top: 0; z-index: 20; flex-wrap: nowrap;
 }
-.sidebar-logo {
-  color: #fff; font-weight: 800; letter-spacing: 1px; font-size: 15px;
-  padding: 0 18px 16px; border-bottom: 1px solid #262626; margin-bottom: 14px;
-}
-.sidebar-user {
-  display: flex; align-items: center; gap: 10px; padding: 0 18px 16px;
-  border-bottom: 1px solid #262626; margin-bottom: 14px;
-}
-.avatar {
-  width: 36px; height: 36px; border-radius: 50%; background: #fff; color: #0a0a0a;
-  display: flex; align-items: center; justify-content: center; font-size: 15px;
-  font-weight: 800; flex-shrink: 0;
-}
-.sidebar-user-info { min-width: 0; }
-.sidebar-username { font-size: 13px; font-weight: 600; color: #fff; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-.sidebar-role { font-size: 10px; color: #666; letter-spacing: 1px; }
+.topnav-brand { color: #fff; font-weight: 800; letter-spacing: 1px; font-size: 15px; white-space: nowrap; }
 
-.sidebar-nav { flex: 1; padding: 0 10px; overflow-y: auto; }
-.sidebar-nhom { color: #555; font-size: 10px; letter-spacing: 1.5px; padding: 0 8px 8px; }
+.nut-hamburger {
+  display: none; width: 34px; height: 34px; background: #1a1a1a; border: 1px solid #2a2a2a;
+  border-radius: 6px; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  cursor: pointer; flex-shrink: 0;
+}
+.nut-hamburger span { width: 16px; height: 2px; background: #fff; border-radius: 2px; }
+
+.topnav-menu { display: flex; align-items: center; gap: 4px; flex: 1; flex-wrap: wrap; }
 .tab-btn {
-  display: flex; align-items: center; gap: 10px; width: 100%; text-align: left;
-  background: transparent; border: none; color: #aaa; padding: 10px 10px;
-  border-radius: 6px; cursor: pointer; font-size: 13px; margin-bottom: 2px; transition: all 0.15s;
+  display: inline-flex; align-items: center; gap: 6px; background: transparent; border: none;
+  color: #aaa; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-size: 12.5px;
+  white-space: nowrap; transition: all 0.15s;
 }
-.tab-icon { font-size: 15px; width: 18px; text-align: center; flex-shrink: 0; }
 .tab-btn:hover { background: #1c1c1c; color: #fff; }
 .tab-btn.active { background: #fff; color: #0a0a0a; font-weight: 700; }
 
-.sidebar-logout {
-  display: flex; align-items: center; gap: 10px;
-  margin: 12px 10px 0; padding: 10px; background: transparent;
-  border: 1px solid #2a2a2a; border-radius: 6px; color: #888; cursor: pointer; font-size: 13px;
-  transition: all 0.15s;
+.topnav-discord {
+  color: #7fb8ff; text-decoration: none; font-size: 12.5px; padding: 8px 12px;
+  border-radius: 6px; border: 1px solid #2a3a4a; transition: all 0.15s; white-space: nowrap;
 }
-.sidebar-logout:hover { border-color: #fff; color: #fff; background: #1a1a1a; }
-.sidebar-logout:active { transform: scale(0.97); }
+.topnav-discord:hover { background: #1a2530; color: #a8d0ff; }
 
-/* ---- Hamburger (chỉ mobile) ---- */
-.nut-hamburger {
-  display: none; position: fixed; top: 14px; left: 14px; z-index: 40;
-  width: 38px; height: 38px; background: #141414; border: 1px solid #2a2a2a;
-  border-radius: 6px; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
-  cursor: pointer;
-}
-.nut-hamburger span { width: 18px; height: 2px; background: #fff; border-radius: 2px; }
-.lop-phu-mobile {
-  display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 25;
-}
-.lop-phu-mobile.hien { display: block; }
-
-/* ---- Vùng nội dung chính ---- */
-.main-area { flex: 1; display: flex; flex-direction: column; min-width: 0; }
-
-.topbar {
-  display: flex; gap: 10px; padding: 16px 24px; border-bottom: 1px solid #262626;
-  position: sticky; top: 0; background: #0a0a0a; z-index: 5;
-}
-.topbar-mobile-spacer { display: none; }
+.topnav-user { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .badge-xu, .badge-streak {
-  background: #141414; border: 1px solid #262626; padding: 7px 14px;
-  border-radius: 6px; font-size: 12px; font-weight: 600; color: #fff; transition: all 0.2s;
+  background: #1a1a1a; border: 1px solid #262626; padding: 6px 10px;
+  border-radius: 6px; font-size: 12px; font-weight: 600; color: #fff; white-space: nowrap;
 }
-.badge-xu:hover, .badge-streak:hover { border-color: #555; }
+.avatar {
+  width: 30px; height: 30px; border-radius: 50%; background: #fff; color: #0a0a0a;
+  display: flex; align-items: center; justify-content: center; font-size: 13px;
+  font-weight: 800; flex-shrink: 0;
+}
+.topnav-username { font-size: 12.5px; color: #ccc; max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topnav-logout {
+  background: transparent; border: 1px solid #2a2a2a; color: #999; width: 30px; height: 30px;
+  border-radius: 6px; cursor: pointer; font-size: 14px; transition: all 0.15s; flex-shrink: 0;
+}
+.topnav-logout:hover { border-color: #fff; color: #fff; }
 
-.content { padding: 24px; flex: 1; }
+/* ---- Nội dung chính ---- */
+.content { padding: 24px; }
 .section-title { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 16px; letter-spacing: 0.5px; }
 .tab-content { display: none; }
 .tab-content.active { display: block; animation: fadeInUp 0.3s ease-out; }
@@ -142,11 +121,13 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
 .dnhn-icon { font-size: 32px; margin-bottom: 8px; }
 .the-form h3 { margin-bottom: 10px; font-size: 15px; color: #fff; }
 .the-form p { margin-bottom: 16px; color: #999; font-size: 13px; }
-.the-form input {
+.the-form input, .the-form select {
   width: 100%; padding: 11px; border-radius: 6px; border: 1px solid #333;
   background: #0a0a0a; color: #fff; margin-bottom: 10px; font-size: 13px;
+  font-family: inherit;
 }
-.the-form input:focus { outline: none; border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,0.08); }
+.the-form input:focus, .the-form select:focus { outline: none; border-color: #fff; box-shadow: 0 0 0 3px rgba(255,255,255,0.08); }
+.the-form select { cursor: pointer; }
 .the-form button {
   width: 100%; padding: 11px; border: 1px solid #fff; border-radius: 6px;
   background: #fff; color: #0a0a0a; font-weight: 700; cursor: pointer;
@@ -156,7 +137,7 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
 .the-form button:active { transform: scale(0.97); }
 .thong-bao { margin-top: 12px; font-size: 13px; min-height: 18px; }
 
-/* ---- Danh sách (lịch sử, BXH) ---- */
+/* ---- Danh sách (lịch sử, BXH, thông tin cá nhân) ---- */
 .grid-list { display: flex; flex-direction: column; gap: 8px; max-width: 600px; }
 .dong-list {
   background: #141414; border: 1px solid #262626; padding: 12px 16px;
@@ -169,18 +150,18 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
 .dong-list .hang { color: #fff; font-weight: 700; margin-right: 8px; }
 
 /* ---- Responsive Mobile ---- */
-@media (max-width: 800px) {
+@media (max-width: 900px) {
   .nut-hamburger { display: flex; }
-
-  .sidebar {
-    position: fixed; left: 0; top: 0; z-index: 30; width: 240px;
-    transform: translateX(-100%); transition: transform 0.25s ease;
+  .topnav { flex-wrap: wrap; }
+  .topnav-menu {
+    display: none; flex-direction: column; align-items: stretch; width: 100%;
+    order: 3; padding-top: 10px; border-top: 1px solid #262626; margin-top: 10px;
   }
-  .sidebar.mo { transform: translateX(0); }
-
-  .topbar-mobile-spacer { display: block; width: 40px; flex-shrink: 0; }
-  .topbar { padding: 12px 16px; }
+  .topnav-menu.mo { display: flex; }
+  .tab-btn { width: 100%; }
+  .topnav-discord { width: 100%; text-align: center; }
   .content { padding: 16px; }
   .grid-shop { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
   .the-form { max-width: 100%; }
+  .topnav-username { max-width: 60px; }
 }
