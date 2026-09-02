@@ -20,6 +20,28 @@
     </div>
   </div>
 
+  <!-- POPUP: THÔNG BÁO TỪ ADMIN -->
+  <div id="modal-thongbao" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-icon">📢</div>
+      <h2 class="modal-title">THÔNG BÁO ĐẾN TỪ ADMIN</h2>
+      <p id="noi-dung-thongbao" class="modal-noidung"></p>
+      <button id="nut-dong-thongbao" class="modal-button">ĐÃ HIỂU</button>
+    </div>
+  </div>
+
+  <!-- POPUP: ĐẶT TÊN HIỂN THỊ (chỉ hỏi 1 lần) -->
+  <div id="modal-datten" class="modal-overlay" style="display:none;">
+    <div class="modal-box">
+      <div class="modal-icon">✏️</div>
+      <h2 class="modal-title">ĐẶT TÊN HIỂN THỊ</h2>
+      <p class="modal-noidung">Chọn 1 tên hiển thị riêng cho web (khác tên Discord). Chỉ hỏi 1 lần duy nhất.</p>
+      <input id="input-ten-web" type="text" placeholder="Nhập tên bạn muốn..." maxlength="30" />
+      <button id="nut-luu-ten-web" class="modal-button">LƯU TÊN</button>
+      <p id="loi-ten-web" class="thong-bao-loi"></p>
+    </div>
+  </div>
+
   <!-- MÀN HÌNH CHÍNH -->
   <div id="man-hinh-chinh" class="app-layout" style="display:none;">
 
@@ -126,7 +148,7 @@
       <section id="tab-napbank" class="tab-content">
         <h2 class="section-title">Nạp Qua Ngân Hàng</h2>
         <div class="the-form">
-          <input id="input-so-tien-bank" type="number" placeholder="Số tiền muốn nạp (VNĐ)" min="1" />
+          <input id="input-so-tien-bank" type="number" placeholder="Số tiền muốn nạp - tối thiểu 2,000 vnd" min="1" />
           <input id="input-ghichu-bank" type="text" placeholder="Ghi chú (không bắt buộc)" />
           <button id="nut-nap-bank">GỬI YÊU CẦU</button>
           <p id="ket-qua-napbank" class="thong-bao"></p>
@@ -150,6 +172,7 @@
   <script src="script_part1.js"></script>
   <script src="script_part2.js"></script>
   <script src="script_part3.js"></script>
+  <script src="script_part4.js"></script>
   <script>
     const _streakObserver = new MutationObserver(() => {
       document.getElementById("streak-hien-tai-form").textContent =
@@ -158,12 +181,6 @@
     if (document.getElementById("streak-hien-tai")) {
       _streakObserver.observe(document.getElementById("streak-hien-tai"), { childList: true });
     }
-
-    const _userObserver = new MutationObserver(() => {
-      const ten = document.getElementById("ten-user").textContent.trim();
-      document.getElementById("avatar-chu-cai").textContent = ten ? ten[0].toUpperCase() : "?";
-    });
-    _userObserver.observe(document.getElementById("ten-user"), { childList: true });
 
     const nutHamburger = document.getElementById("nut-hamburger");
     const topnavMenu = document.getElementById("topnav-menu");
