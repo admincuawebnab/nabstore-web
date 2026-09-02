@@ -30,6 +30,9 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
 .the-login button:hover { background: #0a0a0a; color: #fff; transform: translateY(-2px); box-shadow: 0 4px 14px rgba(255,255,255,0.12); }
 .the-login button:active { transform: translateY(0) scale(0.97); }
 .thong-bao-loi { color: #ff6b6b; font-size: 13px; margin-top: 12px; min-height: 16px; }
+.login-hint { color: #888; font-size: 12px; margin-top: 16px; line-height: 1.6; }
+.login-hint a { color: #7fb8ff; text-decoration: none; }
+.login-hint a:hover { text-decoration: underline; }
 
 /* ---- Popup (Modal) dùng chung ---- */
 .modal-overlay {
