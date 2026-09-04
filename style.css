@@ -195,4 +195,74 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
   .the-form { max-width: 100%; }
   .topnav-username { max-width: 60px; }
   .modal-box { padding: 28px 22px; }
+  /* ============ HIỆU ỨNG BỔ SUNG (dán vào CUỐI style.css) ============ */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,255,255,0.15); }
+  50% { box-shadow: 0 0 0 6px rgba(255,255,255,0); }
+}
+@keyframes bounceIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  60% { transform: scale(1.03); opacity: 1; }
+  100% { transform: scale(1); }
+}
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.badge-xu, .badge-streak {
+  background: linear-gradient(90deg, #1a1a1a 0%, #232323 50%, #1a1a1a 100%);
+  background-size: 200% 100%;
+  animation: shimmer 4s linear infinite;
+}
+
+.avatar { animation: glowPulse 2.5s ease-in-out infinite; }
+
+.topnav-brand { transition: transform 0.2s; cursor: default; }
+.topnav-brand:hover { transform: scale(1.04); }
+
+.grid-shop .the-san-pham {
+  animation: bounceIn 0.35s ease-out backwards;
+}
+.grid-shop .the-san-pham:nth-child(1) { animation-delay: 0.03s; }
+.grid-shop .the-san-pham:nth-child(2) { animation-delay: 0.06s; }
+.grid-shop .the-san-pham:nth-child(3) { animation-delay: 0.09s; }
+.grid-shop .the-san-pham:nth-child(4) { animation-delay: 0.12s; }
+.grid-shop .the-san-pham:nth-child(5) { animation-delay: 0.15s; }
+.grid-shop .the-san-pham:nth-child(6) { animation-delay: 0.18s; }
+.grid-shop .the-san-pham:nth-child(7) { animation-delay: 0.21s; }
+.grid-shop .the-san-pham:nth-child(8) { animation-delay: 0.24s; }
+
+.grid-list .dong-list {
+  animation: bounceIn 0.3s ease-out backwards;
+}
+.grid-list .dong-list:nth-child(1) { animation-delay: 0.03s; }
+.grid-list .dong-list:nth-child(2) { animation-delay: 0.06s; }
+.grid-list .dong-list:nth-child(3) { animation-delay: 0.09s; }
+.grid-list .dong-list:nth-child(4) { animation-delay: 0.12s; }
+.grid-list .dong-list:nth-child(5) { animation-delay: 0.15s; }
+.dong-list .hang { display: inline-block; animation: floatUp 2s ease-in-out infinite; }
+
+.the-form button, .the-san-pham button, .modal-button, .the-login button {
+  position: relative; overflow: hidden;
+}
+.the-form button::after, .the-san-pham button::after,
+.modal-button::after, .the-login button::after {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+  background: rgba(0,0,0,0.15); border-radius: 50%; transform: translate(-50%, -50%);
+  transition: width 0.4s ease, height 0.4s ease;
+}
+.the-form button:active::after, .the-san-pham button:active::after,
+.modal-button:active::after, .the-login button:active::after {
+  width: 220px; height: 220px;
+}
+
+.tab-btn:hover { transform: translateY(-1px); }
+
+.section-title { animation: bounceIn 0.3s ease-out; }
 }
