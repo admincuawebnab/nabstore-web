@@ -265,4 +265,18 @@ body { background: #0a0a0a; color: #e8e8e8; min-height: 100vh; overflow-x: hidde
 .tab-btn:hover { transform: translateY(-1px); }
 
 .section-title { animation: bounceIn 0.3s ease-out; }
+  /* ============ PHÁT SÁNG DÒNG CỦA MÌNH TRONG BXH ============ */
+@keyframes bxhGlow {
+  0%, 100% { box-shadow: 0 0 8px 0 rgba(255,255,255,0.25); }
+  50% { box-shadow: 0 0 16px 2px rgba(255,255,255,0.5); }
+}
+.dong-list.dong-cua-toi {
+  border-color: #fff !important;
+  background: #1c1c1c;
+  animation: bxhGlow 1.8s ease-in-out infinite;
+}
+.nhan-ban {
+  color: #7fd97f;
+  font-size: 11px;
+  font-weight: 700;
 }
