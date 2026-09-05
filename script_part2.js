@@ -82,24 +82,32 @@ nutNhapCode.addEventListener("click", async () => {
   }
 });
 
-// ---- Bảng xếp hạng ----
+// ---- Bảng xếp hạng (tự phát sáng dòng của mình) ----
 async function taiBangXepHang() {
   const el = document.getElementById("danh-sach-bxh");
   el.innerHTML = "Đang tải...";
   try {
-    const data = await goiApi("/api/bxh");
+    const [data, thongTinToi] = await Promise.all([
+      goiApi("/api/bxh"),
+      goiApi("/api/me").catch(() => null),
+    ]);
     const top = data.top || [];
+    const idCuaToi = thongTinToi ? String(thongTinToi.user_id) : null;
+
     if (top.length === 0) {
       el.innerHTML = "<p>Chưa có ai có Bxu để xếp hạng.</p>";
       return;
     }
     const huyChuong = ["🥇", "🥈", "🥉"];
-    el.innerHTML = top.map((muc, i) => `
-      <div class="dong-list">
-        <div class="trai"><span class="hang">${huyChuong[i] || `#${i + 1}`}</span>${muc.username}</div>
-        <div class="phai">${Number(muc.xu).toLocaleString()} Bxu</div>
-      </div>
-    `).join("");
+    el.innerHTML = top.map((muc, i) => {
+      const laCuaToi = idCuaToi && String(muc.user_id) === idCuaToi;
+      return `
+        <div class="dong-list ${laCuaToi ? "dong-cua-toi" : ""}">
+          <div class="trai"><span class="hang">${huyChuong[i] || `#${i + 1}`}</span>${muc.username}${laCuaToi ? " <span class=\"nhan-ban\">(bạn)</span>" : ""}</div>
+          <div class="phai">${Number(muc.xu).toLocaleString()} Bxu</div>
+        </div>
+      `;
+    }).join("");
   } catch (err) {
     el.innerHTML = `<p>${err.message}</p>`;
   }
