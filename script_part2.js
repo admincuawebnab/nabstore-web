@@ -111,4 +111,49 @@ async function taiBangXepHang() {
   } catch (err) {
     el.innerHTML = `<p>${err.message}</p>`;
   }
+ // ---- Bảng xếp hạng Daily Streak ----
+async function taiBangXepHangStreak() {
+  const el = document.getElementById("danh-sach-bxh-streak");
+  if (!el) return;
+
+  el.innerHTML = "Đang tải...";
+
+  try {
+    const [data, thongTinToi] = await Promise.all([
+      goiApi("/api/bxhstreak"),
+      goiApi("/api/me").catch(() => null),
+    ]);
+
+    const top = data.top || [];
+    const idCuaToi = thongTinToi ? String(thongTinToi.user_id) : null;
+
+    if (top.length === 0) {
+      el.innerHTML = "<p>Chưa có ai có Daily Streak để xếp hạng.</p>";
+      return;
+    }
+
+    const huyChuong = ["🥇", "🥈", "🥉"];
+
+    el.innerHTML = top.map((muc, i) => {
+      const laCuaToi =
+        idCuaToi && String(muc.user_id) === idCuaToi;
+
+      return `
+        <div class="dong-list ${laCuaToi ? "dong-cua-toi" : ""}">
+          <div class="trai">
+            <span class="hang">${huyChuong[i] || `#${i + 1}`}</span>
+            ${muc.username}
+            ${laCuaToi ? ' <span class="nhan-ban">(bạn)</span>' : ""}
+          </div>
+
+          <div class="phai">
+            🔥 ${Number(muc.streak).toLocaleString()} ngày
+          </div>
+        </div>
+      `;
+    }).join("");
+
+  } catch (err) {
+    el.innerHTML = `<p>${err.message}</p>`;
+  }
 }
