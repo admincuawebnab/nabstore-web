@@ -111,6 +111,7 @@ async function taiBangXepHang() {
   } catch (err) {
     el.innerHTML = `<p>${err.message}</p>`;
   }
+}
  // ---- Bảng xếp hạng Daily Streak ----
 async function taiBangXepHangStreak() {
   const el = document.getElementById("danh-sach-bxh-streak");
