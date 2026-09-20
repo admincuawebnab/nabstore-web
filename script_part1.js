@@ -1,5 +1,5 @@
 // ⚠️ SỬA DÒNG NÀY: điền URL Repl của bạn
-const API_BASE = "https://nab.freesrv.com/";
+const API_BASE = "https://nab.freesrv.com";
 
 const manHinhLogin = document.getElementById("man-hinh-login");
 const manHinhChinh = document.getElementById("man-hinh-chinh");
